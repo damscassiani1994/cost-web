@@ -4,6 +4,8 @@ import { RootState } from './state';
 import { infoUserReducer } from '../infoUser/reducer';
 import { authReducer, clearState } from '../auth/reducer';
 import { loginReducer } from '../loginPage/reducer';
+import { LoginEffects } from '../auth/effects';
+import { LoginSuccessEffects } from '../loginPage/effects';
 
 export const rootReducers: ActionReducerMap<RootState> = {
   router: routerReducer,
@@ -13,3 +15,5 @@ export const rootReducers: ActionReducerMap<RootState> = {
 };
 
 export const metaReducers: MetaReducer<any>[] =  [];
+
+export const rootEffects: any[] = [LoginEffects, LoginSuccessEffects];
