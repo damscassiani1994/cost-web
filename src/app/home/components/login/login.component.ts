@@ -28,31 +28,10 @@ export class LoginComponent implements OnInit {
   }
 
   alertField(nameField) {
-    console.log('llege');
     M.toast({html: AlertMessage.requiredField(nameField), classes: AlertMessage.classes});
   }
 
   onSubmit(f: NgForm) {
     this.store.dispatch(new IsLogin(this.auth));
-    // f.reset();
-    this.store.select('auth').subscribe(
-      (res) => {
-        if (res.auth || res.err ) {
-          this.actionAuth(res);
-        }
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-  }
-
-  actionAuth(res) {
-    console.log('res', res);
-    if (res.err && res.err.status === 401) {
-      M.toast({html: AlertMessage.authFaild(), classes: AlertMessage.classes});
-    } else {
-      this.router.navigate(['/']);
-    }
   }
 }

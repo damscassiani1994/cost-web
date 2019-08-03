@@ -4,7 +4,6 @@ import { ActionReducer } from '@ngrx/store';
 import { RootState } from '../root/state';
 
 export function authReducer(state = initialAuthState, action: AuthActions): AuthState {
-  console.log('estado en reducers', state);
   switch (action.type) {
     case AuthActionType.IsAuthenticated:
         return {

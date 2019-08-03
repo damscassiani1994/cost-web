@@ -11,6 +11,8 @@ import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
 import { LoginEffects } from './redux/auth/effects';
+import { LoginSuccessEffects } from './redux/loginPage/effects';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,7 @@ import { LoginEffects } from './redux/auth/effects';
     StoreModule.forRoot(rootReducers, {metaReducers} ),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     HttpClientModule,
-    EffectsModule.forRoot([AppEffects, LoginEffects])
+    EffectsModule.forRoot([AppEffects, LoginEffects, LoginSuccessEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
