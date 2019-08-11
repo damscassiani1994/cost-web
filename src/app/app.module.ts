@@ -10,7 +10,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 
-
 @NgModule({
   declarations: [
     AppComponent
