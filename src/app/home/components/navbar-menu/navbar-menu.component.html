@@ -5,9 +5,9 @@
     <ul class="right hide-on-med-and-down">
       <li><a [routerLink]="'/'">Egresos</a></li>
       <li><a [routerLink]="'/'">User</a></li>
-      <li><a [routerLink]="'/'">Sign Out</a></li>
-      <li><a [routerLink]="'login'">Login</a></li>
-      <li><a [routerLink]="'/'">Sign In</a></li>
+      <li *ngIf="user" (click)="accionSignOut()"><a href="#">Sign Out</a></li>
+      <li *ngIf="!user"><a [routerLink]="'login'">Login</a></li>
+      <li *ngIf="!user"><a [routerLink]="'/'">Sign In</a></li>
     </ul>
   </div>
 </nav>
@@ -15,7 +15,7 @@
 <ul class="sidenav" id="mobile-demo">
   <li><a [routerLink]="'/'">Egresos</a></li>
   <li><a [routerLink]="'/'">User</a></li>
-  <li><a [routerLink]="'/'">Sign Out</a></li>
-  <li><a [routerLink]="'login'">Login</a></li>
-  <li><a [routerLink]="'/'">Sign In</a></li>
+  <li *ngIf="user" (click)="accionSignOut()"><a href="#">Sign Out</a></li>
+  <li *ngIf="!user"><a [routerLink]="'login'">Login</a></li>
+  <li *ngIf="!user"><a [routerLink]="'/'">Sign In</a></li>
 </ul>
