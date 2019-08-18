@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, OnChanges, DoCheck } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Login } from 'src/app/redux/model/login';
 import { Store } from '@ngrx/store';
@@ -8,6 +8,7 @@ import { AlertMessage } from 'src/app/util/messages';
 import { Router } from '@angular/router';
 import { Auth } from 'src/app/redux/model/auth';
 import { exhaustMap, exhaust, map } from 'rxjs/operators';
+import { ErrorAuth } from 'src/app/redux/auth/action';
 declare var M: any;
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -21,10 +22,18 @@ export class LoginComponent implements OnInit {
 
   constructor(private store: Store<RootState>, private router: Router, private cd: ChangeDetectorRef) {
     M.Toast.dismissAll();
-   }
+  }
 
   ngOnInit() {
     this.auth = {username: '', password: ''};
+    this.store.select('auth').subscribe(
+      (result) => {
+        if (result && result.err === 'Unauthorized') {
+          M.toast({html: AlertMessage.authFaild(), classes: AlertMessage.classes});
+          this.store.dispatch(new ErrorAuth(null));
+        }
+      }
+    );
   }
 
   alertField(nameField) {

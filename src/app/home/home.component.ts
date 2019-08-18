@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -8,10 +9,10 @@ import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private changed: ChangeDetectorRef) { }
+  constructor(private changed: ChangeDetectorRef, private authServices: AuthService) { }
 
   ngOnInit() {
-
+    this.authServices.getUserObject();
   }
 
 }

@@ -18,8 +18,8 @@ export class LoginSuccessEffects {
       if (auth.payload.authenticated) {
         sessionStorage.setItem(data.userToken, auth.payload.token);
         sessionStorage.setItem(data.userObject, JSON.stringify(auth.payload.user));
+        this.router.navigate(['home']);
       }
-      this.router.navigate(['/']);
     }),
     catchError(error => of(new ErrorAuth(error)))
   );
