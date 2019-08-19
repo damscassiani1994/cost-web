@@ -6,7 +6,7 @@ import { RootState } from '../redux/root/state';
 import { Store } from '@ngrx/store';
 
 @Injectable()
-export class AuthInterceptor implements HttpInterceptor {
+export class ErrorInterceptor implements HttpInterceptor {
 
   constructor(private store: Store<RootState>) {}
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {

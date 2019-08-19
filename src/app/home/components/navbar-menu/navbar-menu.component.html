@@ -4,8 +4,9 @@
         <a [routerLink]="'/'" class="brand-logo">CostApp</a>
         <a [routerLink]="'/'" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-          <li *ngIf="user"><a [routerLink]="'/'">Egresos</a></li>
-          <li *ngIf="user"><a [routerLink]="'/'">User</a></li>
+          <li *ngIf="user"><a [routerLink]="'expense'">Expenses</a></li>
+          <li *ngIf="user"><a [routerLink]="'infoUser'">My Info</a></li>
+          <li *ngIf="user"><a [routerLink]="'/'">{{ user.username.toUpperCase() }}</a></li>
           <li *ngIf="user" (click)="accionSignOut()"><a href="#">Sign Out</a></li>
           <li *ngIf="!user"><a [routerLink]="'login'">Login</a></li>
           <li *ngIf="!user"><a [routerLink]="'/'">Sign In</a></li>
@@ -14,8 +15,9 @@
     </nav>
 
     <ul class="sidenav" id="mobile-demo">
-      <li *ngIf="user"><a [routerLink]="'/'">Egresos</a></li>
-      <li *ngIf="user"><a [routerLink]="'/'">User</a></li>
+      <li *ngIf="user"><a [routerLink]="'expense'">Expenses</a></li>
+      <li *ngIf="user"><a [routerLink]="'infoUser'">My Info</a></li>
+      <li *ngIf="user"><a [routerLink]="'/'">{{ user.username.toUpperCase() }}</a></li>
       <li *ngIf="user" (click)="accionSignOut()"><a href="#">Sign Out</a></li>
       <li *ngIf="!user"><a [routerLink]="'login'">Login</a></li>
       <li *ngIf="!user"><a [routerLink]="'/'">Sign In</a></li>
