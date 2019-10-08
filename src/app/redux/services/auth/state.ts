@@ -1,4 +1,4 @@
-import { Auth } from '../model/auth';
+import { Auth } from '../../model/auth';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 export interface AuthState {

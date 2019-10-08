@@ -3,7 +3,7 @@ import { IUser } from '../models/user';
 import { data } from '../util/contants';
 import { Store } from '@ngrx/store';
 import { RootState } from '../redux/root/state';
-import { IsAuthenticated } from '../redux/auth/action';
+import { IsAuthenticated } from '../redux/services/auth/action';
 import { Observable, from, of, empty } from 'rxjs';
 
 @Injectable({

@@ -1,4 +1,4 @@
-import { Login } from '../model/login';
+import { Login } from '../../model/login';
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 
 export interface LoginState {

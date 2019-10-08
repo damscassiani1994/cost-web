@@ -3,9 +3,9 @@ import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Router } from '@angular/router';
 import { dispatch } from 'rxjs/internal/observable/pairs';
 import { Observable, of } from 'rxjs';
-import { AuthActionType, IsAuthenticated, ErrorAuth } from '../auth/action';
+import { AuthActionType, IsAuthenticated, ErrorAuth } from '../../services/auth/action';
 import { tap, catchError } from 'rxjs/operators';
-import { data } from '../../util/contants';
+import { data } from '../../../util/contants';
 
 @Injectable()
 export class LoginSuccessEffects {

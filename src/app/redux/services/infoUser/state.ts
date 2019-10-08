@@ -1,4 +1,4 @@
-import { InfoUser } from '../model/infoUser';
+import { InfoUser } from '../../model/infoUser';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 export interface InfoUserState {

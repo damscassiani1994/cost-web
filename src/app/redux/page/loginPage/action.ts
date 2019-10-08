@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Login } from '../model/login';
+import { Login } from '../../model/login';
 
 export enum LoginActionType {
   IsLogin = '[LOGIN] login successfully',

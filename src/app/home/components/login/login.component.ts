@@ -3,12 +3,10 @@ import { NgForm } from '@angular/forms';
 import { Login } from 'src/app/redux/model/login';
 import { Store } from '@ngrx/store';
 import { RootState } from 'src/app/redux/root/state';
-import { IsLogin } from 'src/app/redux/loginPage/action';
+import { IsLogin } from 'src/app/redux/page/loginPage/action';
 import { AlertMessage } from 'src/app/util/messages';
 import { Router } from '@angular/router';
-import { Auth } from 'src/app/redux/model/auth';
-import { exhaustMap, exhaust, map } from 'rxjs/operators';
-import { ErrorAuth } from 'src/app/redux/auth/action';
+import { ErrorAuth } from 'src/app/redux/services/auth/action';
 declare var M: any;
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,

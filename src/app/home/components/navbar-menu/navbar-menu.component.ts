@@ -3,7 +3,7 @@ import { IUser } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { Store } from '@ngrx/store';
 import { RootState } from 'src/app/redux/root/state';
-import { IsSignOut } from 'src/app/redux/loginPage/action';
+import { IsSignOut } from 'src/app/redux/page/loginPage/action';
 import { Router } from '@angular/router';
 
 declare var $: any;

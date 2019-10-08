@@ -1,11 +1,11 @@
 import { ActionReducerMap, MetaReducer } from '@ngrx/store';
 import { routerReducer } from '@ngrx/router-store';
 import { RootState } from './state';
-import { infoUserReducer } from '../infoUser/reducer';
-import { authReducer, clearState } from '../auth/reducer';
-import { loginReducer } from '../loginPage/reducer';
-import { LoginEffects } from '../auth/effects';
-import { LoginSuccessEffects } from '../loginPage/effects';
+import { infoUserReducer } from '../services/infoUser/reducer';
+import { authReducer, clearState } from '../services/auth/reducer';
+import { loginReducer } from '../page/loginPage/reducer';
+import { LoginEffects } from '../services/auth/effects';
+import { LoginSuccessEffects } from '../page/loginPage/effects';
 
 export const rootReducers: ActionReducerMap<RootState> = {
   router: routerReducer,

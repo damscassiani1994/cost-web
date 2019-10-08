@@ -1,4 +1,4 @@
-import { InfoUser } from '../model/infoUser';
+import { InfoUser } from '../../model/infoUser';
 import { Action } from '@ngrx/store';
 
 export enum InfoUserActionType {

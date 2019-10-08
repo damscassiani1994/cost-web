@@ -1,7 +1,7 @@
 import { AuthActionType, AuthActions } from './action';
 import { AuthState, initialAuthState } from './state';
 import { ActionReducer } from '@ngrx/store';
-import { RootState } from '../root/state';
+import { RootState } from '../../root/state';
 
 export function authReducer(state = initialAuthState, action: AuthActions): AuthState {
   switch (action.type) {
