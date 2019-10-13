@@ -1,29 +1,29 @@
 <div>
   <h1 class="h1-strong">Mis Datos</h1>
   <div class="row misdatos">
-      <form class="col s12">
+      <form class="col s12" [formGroup]="userFormGroup">
         <div class="row">
           <div class="input-field col s6">
             <i class="material-icons prefix">account_circle</i>
-            <input id="icon_account_circle" type="text" class="validate">
-            <label for="icon_account_circle">Nombres</label>
+            <input id="icon_account_circle" type="text" class="validate" formControlName="names">
+            <label class="{{isActiveField('names')}}" for="icon_account_circle">Nombres</label>
           </div>
           <div class="input-field col s6">
             <i class="material-icons prefix">account_circle</i>
-            <input id="icon_account_circle2" type="text" class="validate">
-            <label for="icon_account_circle2">Apellidos</label>
+            <input id="icon_account_circle2" type="text" class="validate" formControlName="lastNames">
+            <label class="{{isActiveField('lastNames')}}" for="icon_account_circle2">Apellidos</label>
           </div>
         </div>
         <div class="row">
             <div class="input-field col s6">
               <i class="material-icons prefix">account_circle</i>
-              <input id="icon_account_circle4" type="text" class="validate">
-              <label for="icon_account_circle4">Usuario</label>
+              <input id="icon_account_circle4" type="text" class="validate" formControlName="username">
+              <label class="{{isActiveField('username')}}" for="icon_account_circle4">Usuario</label>
             </div>
             <div class="input-field col s6">
               <i class="material-icons prefix">email</i>
-              <input id="icon_account_circle3" type="email" class="validate">
-              <label for="icon_account_circle3">Email</label>
+              <input id="icon_account_circle3" type="email" class="validate" formControlName="email">
+              <label class="{{isActiveField('email')}}"for="icon_account_circle3">Email</label>
             </div>
         </div>
         <ul class="collapsible">
