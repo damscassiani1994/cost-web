@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { RootState } from 'src/app/redux/root/state';
 import { InfoUserService } from 'src/app/services/info-user.service';
 import { IUser } from 'src/app/models/user';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 declare var $: any;
 
 @Component({
@@ -14,6 +14,8 @@ declare var $: any;
 export class InfoUserComponent implements OnInit {
   public user: IUser;
   public userFormGroup: FormGroup;
+  public infoIncomeFormGroup: FormGroup;
+  public infosIncomes: any = [1, 2, 3];
 
   constructor(private store: Store<RootState>, private infoUserServices: InfoUserService,
               private formBuilder: FormBuilder) { }
@@ -24,6 +26,8 @@ export class InfoUserComponent implements OnInit {
     });
     // Generamos formulario y obteneos la informacion de usuario;
     this.generateFormUserInfo();
+    // Generamos forumulario y obtenemos la informacion de los ingresos del usuario
+    this.getFormIncome();
   }
 
   generateFormUserInfo() {
@@ -31,10 +35,10 @@ export class InfoUserComponent implements OnInit {
       (response) => {
         if (response.auth && response.auth.user) {
           this.userFormGroup = this.formBuilder.group({
-            names: response.auth.user.name,
-            lastNames: response.auth.user.lastName,
-            username: response.auth.user.username,
-            email: response.auth.user.email
+            names: [response.auth.user.name, [Validators.required]],
+            lastNames: [response.auth.user.lastName],
+            username: [response.auth.user.username, Validators.required],
+            email: [response.auth.user.email, Validators.required]
           });
         }
       },
@@ -47,8 +51,15 @@ export class InfoUserComponent implements OnInit {
     return this.userFormGroup.value;
   }
 
-  isActiveField(prop) {
-    if (this.userFormGroup.get(prop).value) {
+  getFormIncome() {
+    this.infoIncomeFormGroup = this.formBuilder.group({
+      income: [],
+      period: [15]
+    });
+  }
+
+  isActiveField(prop, fg: FormGroup) {
+    if (fg.get(prop).value) {
       return 'active';
     }
     return 'inactive';

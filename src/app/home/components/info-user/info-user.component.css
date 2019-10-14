@@ -1,4 +1,15 @@
 .misdatos {
   margin-left: 10px;
+  width: 40%;
+}
+
+.misIngreso {
+  position: absolute;
+  right: 10px;
+  top: 200px;
   width: 50%;
+}
+
+.ingresos-title {
+  color: #00bfa5;
 }

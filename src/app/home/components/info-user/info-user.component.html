@@ -1,50 +1,66 @@
 <div>
   <h1 class="h1-strong">Mis Datos</h1>
   <div class="row misdatos">
-      <form class="col s12" [formGroup]="userFormGroup">
-        <div class="row">
-          <div class="input-field col s6">
-            <i class="material-icons prefix">account_circle</i>
-            <input id="icon_account_circle" type="text" class="validate" formControlName="names">
-            <label class="{{isActiveField('names')}}" for="icon_account_circle">Nombres</label>
-          </div>
-          <div class="input-field col s6">
-            <i class="material-icons prefix">account_circle</i>
-            <input id="icon_account_circle2" type="text" class="validate" formControlName="lastNames">
-            <label class="{{isActiveField('lastNames')}}" for="icon_account_circle2">Apellidos</label>
-          </div>
+    <form class="col s12" [formGroup]="userFormGroup">
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="icon_account_circle" type="text" class="validate" formControlName="names">
+          <label class="{{isActiveField('names', userFormGroup)}}" for="icon_account_circle">Nombres</label>
         </div>
-        <div class="row">
-            <div class="input-field col s6">
-              <i class="material-icons prefix">account_circle</i>
-              <input id="icon_account_circle4" type="text" class="validate" formControlName="username">
-              <label class="{{isActiveField('username')}}" for="icon_account_circle4">Usuario</label>
-            </div>
-            <div class="input-field col s6">
-              <i class="material-icons prefix">email</i>
-              <input id="icon_account_circle3" type="email" class="validate" formControlName="email">
-              <label class="{{isActiveField('email')}}"for="icon_account_circle3">Email</label>
-            </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="icon_account_circle2" type="text" class="validate" formControlName="lastNames">
+          <label class="{{isActiveField('lastNames', userFormGroup)}}" for="icon_account_circle2">Apellidos</label>
         </div>
-        <ul class="collapsible">
-          <li>
-              <div class="collapsible-header"><i class="material-icons">archive</i>Ingresos</div>
-              <div class="collapsible-body">
-                  <div class="row">
-                      <div class="input-field col s6">
-                        <i class="material-icons prefix">attach_money</i>
-                        <input id="icon_attach_money" type="number" class="validate">
-                        <label for="icon_attach_money">Ingresos</label>
-                      </div>
-                      <div class="input-field col s6">
-                        <i class="material-icons prefix">perm_contact_calendar</i>
-                        <input id="icon_contact_calendar" type="number" class="validate">
-                        <label for="icon_contact_calendar">Perido de ingreso</label>
-                      </div>
-                    </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="icon_account_circle4" type="text" class="validate" formControlName="username">
+          <label class="{{isActiveField('username', userFormGroup)}}" for="icon_account_circle4">Usuario</label>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">email</i>
+          <input id="icon_account_circle3" type="email" class="validate" formControlName="email">
+          <label class="{{isActiveField('email', userFormGroup)}}" for="icon_account_circle3">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <button type="submit" class="waves-effect waves-light btn-small">
+          <i class="material-icons right">beenhere</i>
+          Guardar
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="row misIngreso">
+    <ul class="collapsible">
+      <li>
+        <div class="collapsible-header ingresos-title"><i class="material-icons">archive</i>Ingresos</div>
+        <div class="collapsible-body">
+          <div class="row" *ngFor="let i of infosIncomes">
+            <form class="col s12" [formGroup]="infoIncomeFormGroup">
+              <div class="input-field col s5">
+                <i class="material-icons prefix">attach_money</i>
+                <input class="validate" id="icon_attach_money" type="number" formControlName="income">
+                <label class="{{isActiveField('income', infoIncomeFormGroup)}}" for="icon_attach_money">Ingresos</label>
               </div>
-          </li>
-        </ul>
-      </form>
-    </div>
+              <div class="input-field col s5">
+                <i class="material-icons prefix">perm_contact_calendar</i>
+                <input class="validate" id="icon_contact_calendar" type="number" formControlName="period">
+                <label class="{{isActiveField('period', infoIncomeFormGroup)}}" for="icon_contact_calendar">Perido de
+                  ingreso</label>
+              </div>
+              <div class="input-field col s2">
+                <button type="submit" class="waves-effect waves-light btn-small">
+                  <i class="material-icons">beenhere</i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>
