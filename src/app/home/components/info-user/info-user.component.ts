@@ -15,7 +15,7 @@ export class InfoUserComponent implements OnInit {
   public user: IUser;
   public userFormGroup: FormGroup;
   public infoIncomeFormGroup: FormGroup;
-  public infosIncomes: any = [1, 2, 3];
+  public infosIncomes: any = [1];
 
   constructor(private store: Store<RootState>, private infoUserServices: InfoUserService,
               private formBuilder: FormBuilder) { }
@@ -53,7 +53,7 @@ export class InfoUserComponent implements OnInit {
 
   getFormIncome() {
     this.infoIncomeFormGroup = this.formBuilder.group({
-      income: [],
+      income: 2000,
       period: [15]
     });
   }

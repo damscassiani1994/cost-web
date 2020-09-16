@@ -122,6 +122,7 @@
   },
   "defaultProject": "cost-web",
   "cli": {
-    "defaultCollection": "@ngrx/schematics"
+    "defaultCollection": "@ngrx/schematics",
+    "analytics": "c46cd920-96b7-4269-aadd-5da3b33235e0"
   }
 }
